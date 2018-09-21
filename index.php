@@ -11,6 +11,8 @@
 
     <div id="content">
         <h3>This. Is. It.</h3>
+        <p>Teams JSON: /wp-json/wp/v2/teams</p>
+        <p>Seasons JSON: /wp-json/wp/v2/seasons</p>
         <?php
         // if ( have_posts() ) :
         //     if ( is_home() && ! is_front_page() ) {
