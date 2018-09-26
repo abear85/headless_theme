@@ -192,6 +192,11 @@
 				'type' => 'text',
 			),
 			array(
+				'name' => 'Third Place',
+				'id' => 'thirdPlace',
+				'type' => 'text',
+			),
+			array(
 				'name' => 'Regular Season Standings',
 				'id' => 'standings',
 				'type' => 'text_list',
