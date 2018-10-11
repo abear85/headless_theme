@@ -147,24 +147,196 @@
 			'autosave' => true,
 			//List of fields
 			'fields' => array (
-			//IMAGE field
-			array(
-				'name' => 'GM/Owner Name',
-				'id' => 'owner',
-				'type' => 'text',
-			),
-			array(
-				'name' => 'Keepers',
-				'id' => 'keeperDetails',
-				'type' => 'text_list',
-				'clone' => true,
-				'options' => array(
-					'FirstName LastName' => 'Player Name',
-					'TeamName' => 'Player Team',
-					'Forever/1/2/3' => 'Contract Status'
-				)
-			)                           
+				//IMAGE field
+				array(
+					'name' => 'GM/Owner Name',
+					'id' => 'owner',
+					'type' => 'text',
+				),
+				array(
+					'name' => 'Keepers',
+					'id' => 'keeperDetails',
+					'type' => 'text_list',
+					'clone' => true,
+					'options' => array(
+						'FirstName LastName' => 'Player Name',
+						'TeamName' => 'Player Team',
+						'Forever/1/2/3' => 'Contract Status'
+					)
+				)                           
 			)                   
+		);
+		$meta_boxes[] = array(
+			'id'	=>	'keeperOneDetails',
+			'title'	=>	__( 'Keeper 01', 'rwmb' ),
+			'pages'	=> array('teams'),
+			'context'	=> 'after_editor',
+			'autosave'	=> true,
+			'fields'	=> array (
+				array(
+					'name'	=> 'Player First Name',
+					'id'	=> 'firstName01',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Player Last Name',
+					'id'	=> 'lastName01',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Team Name',
+					'id'	=> 'teamName01',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=>	'Contract Length',
+					'id'	=>	'contract01',
+					'type'	=>	'select',
+					'options'	=> array(
+						'forever'	=> 'Forever',
+						'1'			=> '1',
+						'2'			=> '2',
+						'3'			=> '3'
+					),
+					'placeholder'	=> 'Length of contract'
+				),
+				array(
+					'name'	=> 'Player Photo',
+					'id'	=> 'playerPhoto01',
+					'type'	=> 'image',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1
+				)
+			)
+		);
+		$meta_boxes[] = array(
+			'id'	=>	'keeperTwoDetails',
+			'title'	=>	__( 'Keeper 02', 'rwmb' ),
+			'pages'	=> array('teams'),
+			'context'	=> 'after_editor',
+			'autosave'	=> true,
+			'fields'	=> array (
+				array(
+					'name'	=> 'Player First Name',
+					'id'	=> 'firstName02',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Player Last Name',
+					'id'	=> 'lastName02',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Team Name',
+					'id'	=> 'teamName02',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=>	'Contract Length',
+					'id'	=>	'contract02',
+					'type'	=>	'select',
+					'options'	=> array(
+						'forever'	=> 'Forever',
+						'1'			=> '1',
+						'2'			=> '2',
+						'3'			=> '3'
+					),
+					'placeholder'	=> 'Length of contract'
+				),
+				array(
+					'name'	=> 'Player Photo',
+					'id'	=> 'playerPhoto02',
+					'type'	=> 'image',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1
+				)
+			)
+		);
+		$meta_boxes[] = array(
+			'id'	=>	'keeperThreeDetails',
+			'title'	=>	__( 'Keeper 03', 'rwmb' ),
+			'pages'	=> array('teams'),
+			'context'	=> 'after_editor',
+			'autosave'	=> true,
+			'fields'	=> array (
+				array(
+					'name'	=> 'Player First Name',
+					'id'	=> 'firstName03',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Player Last Name',
+					'id'	=> 'lastName03',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Team Name',
+					'id'	=> 'teamName03',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=>	'Contract Length',
+					'id'	=>	'contract03',
+					'type'	=>	'select',
+					'options'	=> array(
+						'forever'	=> 'Forever',
+						'1'			=> '1',
+						'2'			=> '2',
+						'3'			=> '3'
+					),
+					'placeholder'	=> 'Length of contract'
+				),
+				array(
+					'name'	=> 'Player Photo',
+					'id'	=> 'playerPhoto03',
+					'type'	=> 'image',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1
+				)
+			)
+		);
+		$meta_boxes[] = array(
+			'id'	=>	'keeperFourDetails',
+			'title'	=>	__( 'Keeper 04', 'rwmb' ),
+			'pages'	=> array('teams'),
+			'context'	=> 'after_editor',
+			'autosave'	=> true,
+			'fields'	=> array (
+				array(
+					'name'	=> 'Player First Name',
+					'id'	=> 'firstName04',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Player Last Name',
+					'id'	=> 'lastName04',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=> 'Team Name',
+					'id'	=> 'teamName04',
+					'type'	=> 'text'
+				),
+				array(
+					'name'	=>	'Contract Length',
+					'id'	=>	'contract04',
+					'type'	=>	'select',
+					'options'	=> array(
+						'forever'	=> 'Forever',
+						'1'			=> '1',
+						'2'			=> '2',
+						'3'			=> '3'
+					),
+					'placeholder'	=> 'Length of contract'
+				),
+				array(
+					'name'	=> 'Player Photo',
+					'id'	=> 'playerPhoto04',
+					'type'	=> 'image',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1
+				)
+			)
 		);
 
 		$meta_boxes[] = array(
