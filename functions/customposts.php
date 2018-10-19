@@ -1,4 +1,8 @@
 <?php
+	//add_theme_support( 'post-thumbnails' );
+	
+	
+
 	function my_custom_post_services() {
         $labels = array(
         'name'               => _x( 'Services', 'post type general name' ),
@@ -93,7 +97,39 @@
         register_post_type( 'Seasons', $args );     
     }
 
-    add_action( 'init', 'my_custom_rssl_seasons' );
+	add_action( 'init', 'my_custom_rssl_seasons' );
+	
+	function my_custom_rssl_players() {
+        $labels = array(
+        'name'               => _x( 'Players', 'post type general name' ),
+        'singular_name'      => _x( 'Players', 'post type singular name' ),
+        'add_new'            => _x( 'Add New', 'home' ),
+        'add_new_item'       => __( 'Add New Players' ),
+        'edit_item'          => __( 'Edit Player' ),
+        'new_item'           => __( 'New Player' ),
+        'all_items'          => __( 'All Player' ),
+        'view_item'          => __( 'View Player' ),
+        'search_items'       => __( 'Search Players' ),
+        'not_found'          => __( 'No Players found' ),
+        'not_found_in_trash' => __( 'No Players found in the Trash' ),
+        'parent_item_colon'  => '',
+        'menu_name'          => 'Players'
+        );
+
+        $args = array(
+			'labels'        => $labels,
+			'description'   => 'Holds Players',
+			'public'        => true,
+			'menu_position' => 4,
+			'supports'      => array( 'title','custom-fields','thumbnail'),
+			'has_archive'   => true,
+			'show_in_rest'	=> true,
+			'menu_icon' => 'dashicons-businessman'
+        );
+        register_post_type( 'Players', $args );     
+    }
+
+	add_action( 'init', 'my_custom_rssl_players' );
 
     //meta boxes
     add_filter('rwmb_meta_boxes', 'register_meta_boxes');
@@ -153,44 +189,32 @@
 					'id' => 'owner',
 					'type' => 'text',
 				),
-				array(
-					'name' => 'Keepers',
-					'id' => 'keeperDetails',
-					'type' => 'text_list',
-					'clone' => true,
-					'options' => array(
-						'FirstName LastName' => 'Player Name',
-						'TeamName' => 'Player Team',
-						'Forever/1/2/3' => 'Contract Status'
-					)
-				)                           
+				// array(
+				// 	'name' => 'Keepers',
+				// 	'id' => 'keeperDetails',
+				// 	'type' => 'text_list',
+				// 	'clone' => true,
+				// 	'options' => array(
+				// 		'FirstName LastName' => 'Player Name',
+				// 		'TeamName' => 'Player Team',
+				// 		'Forever/1/2/3' => 'Contract Status'
+				// 	)
+				// )                           
 			)                   
 		);
+
 		$meta_boxes[] = array(
-			'id'	=>	'keeperOneDetails',
-			'title'	=>	__( 'Keeper 01', 'rwmb' ),
-			'pages'	=> array('teams'),
-			'context'	=> 'after_editor',
-			'autosave'	=> true,
-			'fields'	=> array (
-				array(
-					'name'	=> 'Player First Name',
-					'id'	=> 'firstName01',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Player Last Name',
-					'id'	=> 'lastName01',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Team Name',
-					'id'	=> 'teamName01',
-					'type'	=> 'text'
-				),
+			'id' => 'playerDetails',
+			'title' => __( 'Player Details', 'rwmb' ),
+			'pages' => array('players'),
+			'context' => 'after_editor',
+			'autosave' => true,
+			//List of fields
+			'fields' => array (
+				//IMAGE field
 				array(
 					'name'	=>	'Contract Length',
-					'id'	=>	'contract01',
+					'id'	=>	'contractLength',
 					'type'	=>	'select',
 					'options'	=> array(
 						'forever'	=> 'Forever',
@@ -201,143 +225,55 @@
 					'placeholder'	=> 'Length of contract'
 				),
 				array(
-					'name'	=> 'Player Photo',
-					'id'	=> 'playerPhoto01',
-					'type'	=> 'image',
-					'force_delete'	=> false,
-					'max_file_uploads'	=> 1
-				)
-			)
-		);
-		$meta_boxes[] = array(
-			'id'	=>	'keeperTwoDetails',
-			'title'	=>	__( 'Keeper 02', 'rwmb' ),
-			'pages'	=> array('teams'),
-			'context'	=> 'after_editor',
-			'autosave'	=> true,
-			'fields'	=> array (
-				array(
-					'name'	=> 'Player First Name',
-					'id'	=> 'firstName02',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Player Last Name',
-					'id'	=> 'lastName02',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Team Name',
-					'id'	=> 'teamName02',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=>	'Contract Length',
-					'id'	=>	'contract02',
+					'name'	=>	'NHL Team',
+					'id'	=>	'nhlTeam',
 					'type'	=>	'select',
 					'options'	=> array(
-						'forever'	=> 'Forever',
-						'1'			=> '1',
-						'2'			=> '2',
-						'3'			=> '3'
+						'anaheim-ducks'	=> 'Anaheim Ducks',
+						'arizona-coyotes'	=> 'Arizona Coyotes',
+						'boston-bruins'	=> 'Boston Bruins',
+						'buffalo-sabres'	=> 'Buffalo Sabres',
+						'calgary-flames'	=> 'Calgary Flames',
+						'carolina-hurricanes'	=> 'Carolina Hurricanes',
+						'chicago-blackhawks'	=> 'Chicago Blackhawks',
+						'colorado-avalanche'	=> 'Colorado Avalanche',
+						'columbus-blue-jackets'	=> 'Columbus Blue Jackets',
+						'dallas-stars'	=> 'Dallas Stars',
+						'detroit-red-wings'	=> 'Detroit Red Wings',
+						'edmonton-oilers'	=> 'Edmonton Oilers',
+						'florida-panthers'	=> 'Florida Panthers',
+						'los-angeles-kings'	=> 'Los Angeles Kings',
+						'minnesota-wild'	=> 'Minnesota Wild',
+						'montreal-canadiens'	=> 'Montreal Canadiens',
+						'nashville-predators'	=> 'Nashville Predators',
+						'new-jersey-devils'	=> 'New Jersey Devils',
+						'new-york-islanders'	=> 'New York Islanders',
+						'new-york-rangers'	=> 'New York Rangers',
+						'ottawa-senators'	=> 'Ottawa Senators',
+						'philadelphia-flyers'	=> 'Philadelphia Flyers',
+						'pittsburgh-penguins'	=> 'Pittsburgh Penguins',
+						'st.-louis-blues'	=> 'St. Louis Blues',
+						'san-jose-sharks'	=> 'San Jose Sharks',
+						'tampa-bay-lightning'	=> 'Tampa Bay Lightning',
+						'toronto-maple-leafs'	=> 'Toronto Maple Leafs',
+						'vancouver-canucks'	=> 'Vancouver Canucks',
+						'vegas-golden-knights'	=> 'Vegas Golden Knights',
+						'washington-capitals'	=> 'Washington Capitals',
+						'winnipeg-jets'	=> 'Winnipeg Jets'
 					),
-					'placeholder'	=> 'Length of contract'
-				),
+					'placeholder'	=> 'NHL Team'
+				),    
 				array(
 					'name'	=> 'Player Photo',
-					'id'	=> 'playerPhoto02',
-					'type'	=> 'image',
+					'id'	=> 'playerPhoto',
+					'type'	=> 'image_advanced',
 					'force_delete'	=> false,
-					'max_file_uploads'	=> 1
-				)
-			)
+					'max_file_uploads'	=> 1,
+					'image_size'       => 'thumbnail'
+				)              
+			)                   
 		);
-		$meta_boxes[] = array(
-			'id'	=>	'keeperThreeDetails',
-			'title'	=>	__( 'Keeper 03', 'rwmb' ),
-			'pages'	=> array('teams'),
-			'context'	=> 'after_editor',
-			'autosave'	=> true,
-			'fields'	=> array (
-				array(
-					'name'	=> 'Player First Name',
-					'id'	=> 'firstName03',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Player Last Name',
-					'id'	=> 'lastName03',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Team Name',
-					'id'	=> 'teamName03',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=>	'Contract Length',
-					'id'	=>	'contract03',
-					'type'	=>	'select',
-					'options'	=> array(
-						'forever'	=> 'Forever',
-						'1'			=> '1',
-						'2'			=> '2',
-						'3'			=> '3'
-					),
-					'placeholder'	=> 'Length of contract'
-				),
-				array(
-					'name'	=> 'Player Photo',
-					'id'	=> 'playerPhoto03',
-					'type'	=> 'image',
-					'force_delete'	=> false,
-					'max_file_uploads'	=> 1
-				)
-			)
-		);
-		$meta_boxes[] = array(
-			'id'	=>	'keeperFourDetails',
-			'title'	=>	__( 'Keeper 04', 'rwmb' ),
-			'pages'	=> array('teams'),
-			'context'	=> 'after_editor',
-			'autosave'	=> true,
-			'fields'	=> array (
-				array(
-					'name'	=> 'Player First Name',
-					'id'	=> 'firstName04',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Player Last Name',
-					'id'	=> 'lastName04',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=> 'Team Name',
-					'id'	=> 'teamName04',
-					'type'	=> 'text'
-				),
-				array(
-					'name'	=>	'Contract Length',
-					'id'	=>	'contract04',
-					'type'	=>	'select',
-					'options'	=> array(
-						'forever'	=> 'Forever',
-						'1'			=> '1',
-						'2'			=> '2',
-						'3'			=> '3'
-					),
-					'placeholder'	=> 'Length of contract'
-				),
-				array(
-					'name'	=> 'Player Photo',
-					'id'	=> 'playerPhoto04',
-					'type'	=> 'image',
-					'force_delete'	=> false,
-					'max_file_uploads'	=> 1
-				)
-			)
-		);
+		
 
 		$meta_boxes[] = array(
 			'id' => 'individualSeason',
@@ -384,5 +320,14 @@
 
 		return $meta_boxes;
 
-	}   
+	} 
+	
+	//post to post
+	add_action( 'mb_relationships_init', function() {
+		MB_Relationships_API::register( array(
+			'id'   => 'players_to_teams',
+			'from' => 'players',
+			'to'   => 'teams',
+		) );
+	} );
 ?>
