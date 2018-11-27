@@ -131,6 +131,39 @@
 
 	add_action( 'init', 'my_custom_rssl_players' );
 
+	function best_albums() {
+        $labels = array(
+        'name'               => _x( 'Albums', 'post type general name' ),
+        'singular_name'      => _x( 'Albums', 'post type singular name' ),
+        'add_new'            => _x( 'Add New', 'home' ),
+        'add_new_item'       => __( 'Add New Albums' ),
+        'edit_item'          => __( 'Edit Album' ),
+        'new_item'           => __( 'New Album' ),
+        'all_items'          => __( 'All Albums' ),
+        'view_item'          => __( 'View Album' ),
+        'search_items'       => __( 'Search Albums' ),
+        'not_found'          => __( 'No Albums found' ),
+        'not_found_in_trash' => __( 'No Albums found in the Trash' ),
+        'parent_item_colon'  => '',
+        'menu_name'          => 'Best Albums'
+        );
+
+        $args = array(
+			'labels'        => $labels,
+			'description'   => 'Holds Albums',
+			'public'        => true,
+			'menu_position' => 4,
+			'supports'      => array( 'title','custom-fields','thumbnail','excerpt'),
+			'has_archive'   => true,
+			'show_in_rest'	=> true,
+			'taxonomies'    => array( 'category' ),
+			'menu_icon' => 'dashicons-format-audio'
+        );
+        register_post_type( 'Albums', $args );     
+    }
+
+	add_action( 'init', 'best_albums' );
+
     //meta boxes
     add_filter('rwmb_meta_boxes', 'register_meta_boxes');
 
@@ -314,6 +347,52 @@
 					'TeamName' => 'Team'
 				)
 			)                           
+			)                   
+		);
+
+		$meta_boxes[] = array(
+			'id' => 'albumDetails',
+			'title' => __( 'Album Details', 'rwmb' ),
+			'pages' => array('albums'),
+			'context' => 'after_editor',
+			'autosave' => true,
+			//List of fields
+			'fields' => array (
+				//IMAGE field
+				array(
+					'name' => 'Artist',
+					'id' => 'artist',
+					'type' => 'text',
+					'desc'=> 'Artist Name'
+				),
+				array(
+					'name' => 'Genre',
+					'id' => 'genre',
+					'type' => 'text',
+					'desc'	=> '100% optional'
+				),
+				array(
+					'name' => 'YouTube Embed',
+					'id' => 'youtube',
+					'type' => 'text',
+					'desc'=> 'https://www.youtube.com/watch?v=<strong>a68xzw-onNM</strong> OR https://youtu.be/<strong>a68xzw-onNM</strong>'
+				),   
+				array(
+					'name'	=> 'Album Art',
+					'id'	=> 'albumArt',
+					'type'	=> 'image_advanced',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1,
+					'image_size'       => 'thumbnail'
+				),
+				array(
+					'name'	=> 'Artist Image',
+					'id'	=> 'artistImg',
+					'type'	=> 'image_advanced',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1,
+					'image_size'       => 'thumbnail'
+				)              
 			)                   
 		);
 

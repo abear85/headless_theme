@@ -14,6 +14,7 @@
         <p>Teams JSON: /wp-json/wp/v2/teams</p>
         <p>Players JSON: /wp-json/wp/v2/players</p>
         <p>Seasons JSON: /wp-json/wp/v2/seasons</p>
+        <p>Best Albums JSON /wp-json/wp/v2/albums<em>?categories=3 <strong>need a way to pull id better than hardcoding it</strong></em></p>
         <?php
         // if ( have_posts() ) :
         //     if ( is_home() && ! is_front_page() ) {
