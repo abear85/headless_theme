@@ -371,12 +371,12 @@
 					'type' => 'text',
 					'desc'	=> '100% optional'
 				),
-				array(
-					'name' => 'YouTube Embed',
-					'id' => 'youtube',
-					'type' => 'text',
-					'desc'=> 'https://www.youtube.com/watch?v=<strong>a68xzw-onNM</strong> OR https://youtu.be/<strong>a68xzw-onNM</strong>'
-				),   
+				// array(
+				// 	'name' => 'YouTube Embed',
+				// 	'id' => 'youtube',
+				// 	'type' => 'text',
+				// 	'desc'=> 'https://www.youtube.com/watch?v=<strong>a68xzw-onNM</strong> OR https://youtu.be/<strong>a68xzw-onNM</strong>'
+				// ),   
 				array(
 					'name'	=> 'Album Art',
 					'id'	=> 'albumArt',
@@ -392,7 +392,17 @@
 					'force_delete'	=> false,
 					'max_file_uploads'	=> 1,
 					'image_size'       => 'thumbnail'
-				)              
+				),
+				array(
+					'name' => 'Essential Tracks',
+					'id' => 'essentialTracks',
+					'type' => 'text_list',
+					'clone' => true,
+					'options' => array(
+						'Today' => 'Track Title',
+						'http://youtu.be/embed' => 'YouTube Link'
+					)
+				)                         
 			)                   
 		);
 
