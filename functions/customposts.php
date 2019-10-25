@@ -371,12 +371,12 @@
 					'type' => 'text',
 					'desc'	=> '100% optional'
 				),
-				// array(
-				// 	'name' => 'YouTube Embed',
-				// 	'id' => 'youtube',
-				// 	'type' => 'text',
-				// 	'desc'=> 'https://www.youtube.com/watch?v=<strong>a68xzw-onNM</strong> OR https://youtu.be/<strong>a68xzw-onNM</strong>'
-				// ),   
+				array(
+					'name' => 'YouTube Embed',
+					'id' => 'youtube',
+					'type' => 'text',
+					'desc'=> 'https://www.youtube.com/watch?v=<strong>a68xzw-onNM</strong> OR https://youtu.be/<strong>a68xzw-onNM</strong>'
+				),   
 				array(
 					'name'	=> 'Album Art',
 					'id'	=> 'albumArt',
