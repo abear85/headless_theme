@@ -366,6 +366,13 @@
 					'desc'=> 'Artist Name'
 				),
 				array(
+					'name' => 'Rank',
+					'id' => 'rank',
+					'type' => 'number',
+					'min'	=> '1',
+					'max'	=> '50'
+				),
+				array(
 					'name' => 'Genre',
 					'id' => 'genre',
 					'type' => 'text',
