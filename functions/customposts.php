@@ -344,9 +344,53 @@
 				'clone' => true,
 				'options' => array(
 					'1-8' => 'Order',
-					'TeamName' => 'Team'
+					'TeamName' => 'Team',
+					'Wins' => 'Wins',
+					'Losses' => 'Losses',
+					'Ties' => 'Ties',
+					'Points' => 'Points',
+					'WinPercent' => 'WinPercent',
 				)
-			)                           
+			),
+			array(
+				'name' => 'QuarterFinals',
+				'id' => 'quarterFinals',
+				'type' => 'text_list',
+				'clone' => true,
+				'options' => array(
+					'1-8 Higher' => 'Higher Seed Rank',
+					'TeamNameHigherRank' => 'Higher Seed Team',
+					'1-8 Lower' => 'Lower Seed Rank',
+					'TeamNameLowerRank' => 'Lower Seed Team',
+					'Winner' => 'Winner (Use Rank 1-8)'
+				)
+			),
+			array(
+				'name' => 'SemiFinals',
+				'id' => 'semiFinals',
+				'type' => 'text_list',
+				'clone' => true,
+				'options' => array(
+					'1-8 Higher' => 'Higher Seed Rank',
+					'TeamNameHigherRank' => 'Higher Seed Team',
+					'1-8 Lower' => 'Lower Seed Rank',
+					'TeamNameLowerRank' => 'Lower Seed Team',
+					'Winner' => 'Winner (Use Rank 1-8)'
+				)
+			), 
+			array(
+				'name' => 'Finals',
+				'id' => 'finals',
+				'type' => 'text_list',
+				'clone' => true,
+				'options' => array(
+					'1-8 Higher' => 'Higher Seed Rank',
+					'TeamNameHigherRank' => 'Higher Seed Team',
+					'1-8 Lower' => 'Lower Seed Rank',
+					'TeamNameLowerRank' => 'Lower Seed Team',
+					'Winner' => 'Winner (Use Rank 1-8)'
+				)
+			)                         
 			)                   
 		);
 
