@@ -222,6 +222,32 @@
 					'id' => 'owner',
 					'type' => 'text',
 				),
+				array(
+					'name'	=> 'Team Logo',
+					'id'	=> 'teamLogo',
+					'type'	=> 'image_advanced',
+					'force_delete'	=> false,
+					'max_file_uploads'	=> 1,
+					'image_size'       => 'thumbnail'
+				),
+				array(
+					'name'	=> 'Team Primay Colour',
+					'id'	=> 'team_primary_colour',
+					'type'	=> 'color',
+					'alpha_channel'	=> true
+				),
+				array(
+					'name'	=> 'Team Secondary Colour',
+					'id'	=> 'team_secondary_colour',
+					'type'	=> 'color',
+					'alpha_channel'	=> true
+				),
+				array(
+					'name'	=> 'Team Alt Colour',
+					'id'	=> 'team_alt_colour',
+					'type'	=> 'color',
+					'alpha_channel'	=> true
+				)
 				// array(
 				// 	'name' => 'Keepers',
 				// 	'id' => 'keeperDetails',
